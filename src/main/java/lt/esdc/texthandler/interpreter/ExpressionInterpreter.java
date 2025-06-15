@@ -1,4 +1,4 @@
-package main.java.lt.esdc.texthandler.interpreter;
+package lt.esdc.texthandler.interpreter;
 
 public interface ExpressionInterpreter {
     double interpret();

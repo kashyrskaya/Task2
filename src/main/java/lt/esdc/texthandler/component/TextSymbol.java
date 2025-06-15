@@ -1,4 +1,4 @@
-package main.java.lt.esdc.texthandler.component;
+package lt.esdc.texthandler.component;
 
 import java.util.List;
 

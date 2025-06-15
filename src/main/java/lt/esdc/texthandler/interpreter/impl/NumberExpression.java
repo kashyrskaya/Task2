@@ -1,6 +1,6 @@
-package main.java.lt.esdc.texthandler.interpreter.impl;
+package lt.esdc.texthandler.interpreter.impl;
 
-import main.java.lt.esdc.texthandler.interpreter.ExpressionInterpreter;
+import lt.esdc.texthandler.interpreter.ExpressionInterpreter;
 
 public class NumberExpression implements ExpressionInterpreter {
     private final double number;

@@ -1,4 +1,4 @@
-package main.java.lt.esdc.texthandler.component;
+package lt.esdc.texthandler.component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +46,10 @@ public class TextComposite implements TextElement {
 
             if (i < elements.size() - 1) {
                 sb.append(elementType.getDelimiter());
+            }
+
+            if(element.getElementType() == ElementType.PARAGRAPH && i < elements.size() - 1) {
+                sb.append("\n   ");
             }
         }
 

@@ -1,15 +1,15 @@
-package main.java.lt.esdc.texthandler.parser.impl;
+package lt.esdc.texthandler.parser.impl;
 
-import main.java.lt.esdc.texthandler.component.ElementType;
-import main.java.lt.esdc.texthandler.component.TextComposite;
-import main.java.lt.esdc.texthandler.component.TextElement;
-import main.java.lt.esdc.texthandler.parser.CustomParser;
+import lt.esdc.texthandler.component.ElementType;
+import lt.esdc.texthandler.component.TextComposite;
+import lt.esdc.texthandler.component.TextElement;
+import lt.esdc.texthandler.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomTextParser implements CustomParser {
-    private final CustomParser next = new CustomParagraphParser();
+public class TextParser implements Parser {
+    private final Parser next = new ParagraphParser();
 
     @Override
     public List<TextElement> parse(String text) {

@@ -1,8 +1,6 @@
-package main.java.lt.esdc.texthandler.interpreter.impl;
+package lt.esdc.texthandler.interpreter.impl;
 
-import main.java.lt.esdc.texthandler.interpreter.ExpressionInterpreter;
-
-import java.beans.Expression;
+import lt.esdc.texthandler.interpreter.ExpressionInterpreter;
 
 public class DivideExpression implements ExpressionInterpreter {
     private final ExpressionInterpreter left;

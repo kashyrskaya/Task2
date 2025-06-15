@@ -1,6 +1,6 @@
-package main.java.lt.esdc.texthandler.interpreter.impl;
+package lt.esdc.texthandler.interpreter.impl;
 
-import main.java.lt.esdc.texthandler.interpreter.ExpressionInterpreter;
+import lt.esdc.texthandler.interpreter.ExpressionInterpreter;
 
 public class MultiplyExpression implements ExpressionInterpreter {
     private final ExpressionInterpreter left;

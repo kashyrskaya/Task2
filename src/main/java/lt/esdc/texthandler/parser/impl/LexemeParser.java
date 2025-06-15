@@ -1,17 +1,17 @@
-package main.java.lt.esdc.texthandler.parser.impl;
+package lt.esdc.texthandler.parser.impl;
 
-import main.java.lt.esdc.texthandler.component.ElementType;
-import main.java.lt.esdc.texthandler.component.TextComposite;
-import main.java.lt.esdc.texthandler.component.TextElement;
-import main.java.lt.esdc.texthandler.parser.CustomParser;
+import lt.esdc.texthandler.component.ElementType;
+import lt.esdc.texthandler.component.TextComposite;
+import lt.esdc.texthandler.component.TextElement;
+import lt.esdc.texthandler.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomLexemeParser implements CustomParser {
+public class LexemeParser implements Parser {
     private final static String LEXEMES_DELIMITER = "\\s+";
     private final static String EMPTY_WORD = "";
-    private final CustomParser next = new CustomSymbolParser();
+    private final Parser next = new SymbolParser();
 
     @Override
     public List<TextElement> parse(String text) {

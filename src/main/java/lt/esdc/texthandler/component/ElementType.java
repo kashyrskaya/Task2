@@ -1,12 +1,13 @@
-package main.java.lt.esdc.texthandler.component;
+package lt.esdc.texthandler.component;
 
 public enum ElementType {
-    TEXT ("\n\n"),
-    PARAGRAPH ("\n"),
+    TEXT ("\\s+"),
+    PARAGRAPH (" "),
     SENTENCE (" "),
     LEXEME (""),
     LETTER (""),
-    PUNCTUATION ("");
+    PUNCTUATION (""),
+    SYMBOL ("");
 
     private final String delimiter;
     ElementType(String delimiter) {

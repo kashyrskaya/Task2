@@ -1,15 +1,15 @@
-package main.java.lt.esdc.texthandler.parser.impl;
+package lt.esdc.texthandler.parser.impl;
 
-import main.java.lt.esdc.texthandler.component.TextElement;
-import main.java.lt.esdc.texthandler.component.TextSymbol;
-import main.java.lt.esdc.texthandler.parser.CustomParser;
-import main.java.lt.esdc.texthandler.component.ElementType;
+import lt.esdc.texthandler.component.TextElement;
+import lt.esdc.texthandler.component.TextSymbol;
+import lt.esdc.texthandler.parser.Parser;
+import lt.esdc.texthandler.component.ElementType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class CustomSymbolParser implements CustomParser {
+public class SymbolParser implements Parser {
     private static final String SYMBOLS_DELIMITER = "";
     private static final String PUNCTUATION = "\\p{Punct}";
 
