@@ -47,10 +47,6 @@ public class TextComposite implements TextElement {
             if (i < elements.size() - 1) {
                 sb.append(elementType.getDelimiter());
             }
-
-            if(element.getElementType() == ElementType.PARAGRAPH && i < elements.size() - 1) {
-                sb.append("\n   ");
-            }
         }
 
         return sb.toString();

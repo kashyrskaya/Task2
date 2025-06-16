@@ -12,15 +12,10 @@ public class ExpressionParser {
                     "(?<!\\w)([+-]?\\d*\\.?\\d+(?:\\s*[+\\-*/]\\s*[+-]?\\d*\\.?\\d+)+)(?!\\w)"
     );
 
-    private static final Pattern TOKEN_PATTERN = Pattern.compile(
-            "([+-]?\\d*\\.?\\d+)|([+\\-*/])|([()])"
-    );
-
     public static String parseAndEvaluate(String text) {
         String result = text;
         boolean hasChanges = true;
 
-        // Итеративно обрабатываем выражения до тех пор, пока есть изменения
         while (hasChanges) {
             String newResult = processExpressions(result);
             hasChanges = !newResult.equals(result);
@@ -38,10 +33,8 @@ public class ExpressionParser {
             try {
                 String expression;
                 if (matcher.group(1) != null) {
-                    // Выражение в скобках
                     expression = matcher.group(1).trim();
                 } else {
-                    // Простое выражение без скобок
                     expression = matcher.group(2).trim();
                 }
 
@@ -49,7 +42,6 @@ public class ExpressionParser {
                 String replacement = formatResult(calculatedValue);
                 matcher.appendReplacement(result, replacement);
             } catch (Exception e) {
-                // В случае ошибки оставляем исходное выражение
                 matcher.appendReplacement(result, matcher.group(0));
             }
         }
@@ -58,13 +50,10 @@ public class ExpressionParser {
     }
 
     private static double evaluateExpression(String expression) {
-        // Убираем лишние пробелы
         expression = expression.replaceAll("[ \\t\\x0B\\f\\r]+", "");
 
-        // Преобразуем инфиксную запись в постфиксную (обратная польская нотация)
         String postfix = infixToPostfix(expression);
 
-        // Вычисляем результат из постфиксной записи
         return evaluatePostfix(postfix);
     }
 
@@ -76,13 +65,12 @@ public class ExpressionParser {
             char c = infix.charAt(i);
 
             if (Character.isDigit(c) || c == '.') {
-                // Считываем число полностью
                 StringBuilder number = new StringBuilder();
                 while (i < infix.length() && (Character.isDigit(infix.charAt(i)) || infix.charAt(i) == '.')) {
                     number.append(infix.charAt(i));
                     i++;
                 }
-                i--; // Откатываемся на один символ назад
+                i--;
                 result.append(number).append(" ");
             } else if (c == '(') {
                 stack.push(c);
@@ -91,16 +79,13 @@ public class ExpressionParser {
                     result.append(stack.pop()).append(" ");
                 }
                 if (!stack.isEmpty()) {
-                    stack.pop(); // Удаляем '('
+                    stack.pop();
                 }
             } else if (isOperator(c)) {
-                // Обработка унарных операторов
                 if ((c == '+' || c == '-') && (i == 0 || infix.charAt(i-1) == '(' || isOperator(infix.charAt(i-1)))) {
                     if (c == '-') {
-                        // Унарный минус - добавляем 0 перед ним
                         result.append("0 ");
                     }
-                    // Унарный плюс игнорируем
                     if (c == '-') {
                         while (!stack.isEmpty() && stack.peek() != '(' && getPrecedence(stack.peek()) >= getPrecedence(c)) {
                             result.append(stack.pop()).append(" ");

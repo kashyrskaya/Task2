@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        Path filePath = Path.of("src/main/resources/sampleOne.txt");
+        Path filePath = Path.of("src/main/resources/sampleTwo.txt");
         TextReader reader = new TextReader();
 
         Optional<String> fileContent = reader.readText(filePath);

@@ -1,7 +1,7 @@
 package lt.esdc.texthandler.component;
 
 public enum ElementType {
-    TEXT ("\\s+"),
+    TEXT ("\n"),
     PARAGRAPH (" "),
     SENTENCE (" "),
     LEXEME (""),
