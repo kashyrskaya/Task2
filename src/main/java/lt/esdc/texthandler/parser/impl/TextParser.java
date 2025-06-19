@@ -16,11 +16,11 @@ public class TextParser implements Parser {
         List<TextElement> texts = new ArrayList<>();
         TextComposite textComponent = new TextComposite(ElementType.TEXT);
 
-        for(TextElement paragraph : next.parse(text)) {
+        for (TextElement paragraph : next.parse(text)) {
             textComponent.add(paragraph);
         }
 
         texts.add(textComponent);
         return texts;
-        }
     }
+}

@@ -29,7 +29,7 @@ public class SentenceParser implements Parser {
             String sentence = matcher.group().trim();
             if (!sentence.isEmpty()) {
                 TextComposite sentenceComponent = new TextComposite(ElementType.SENTENCE);
-                logger.info("Parsing " + sentence);
+                logger.info("Parsing {}", sentence);
                 for (TextElement lexeme : next.parse(sentence)) {
                     sentenceComponent.add(lexeme);
                 }

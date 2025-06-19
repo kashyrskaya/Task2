@@ -15,10 +15,10 @@ public class CountVowelConsonant implements TextService<Map<TextElement, CountVo
     public record VowelConsonantCount(int vowels, int consonants) {
 
         @Override
-            public String toString() {
-                return String.format("Vowel: %d, Consonant: %d", vowels, consonants);
-            }
+        public String toString() {
+            return String.format("Vowel: %d, Consonant: %d", vowels, consonants);
         }
+    }
 
     @Override
     public Map<TextElement, VowelConsonantCount> execute(TextElement textElement) {

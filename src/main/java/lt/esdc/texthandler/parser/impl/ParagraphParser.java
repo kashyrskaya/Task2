@@ -25,7 +25,7 @@ public class ParagraphParser implements Parser {
             String trimmedParagraph = paragraph.stripTrailing();
             if (!trimmedParagraph.isEmpty()) {
                 TextComposite paragraphComponent = new TextComposite(ElementType.PARAGRAPH);
-                logger.info(paragraphComponent + " is being parsed");
+                logger.info("{} is being parsed", paragraphComponent);
                 for (TextElement sentence : next.parse(trimmedParagraph)) {
                     paragraphComponent.add(sentence);
                 }
@@ -33,7 +33,7 @@ public class ParagraphParser implements Parser {
             }
         }
 
-        logger.info(paragraphs.size() + " paragraphs parsed");
+        logger.info("{} paragraphs parsed", paragraphs.size());
         return paragraphs;
     }
 }

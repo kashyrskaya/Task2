@@ -14,8 +14,8 @@ public class TextCompositeTest {
     @BeforeMethod
     public void setUp() {
         textComposite = new TextComposite(ElementType.PARAGRAPH);
-        child1 = new TextSymbol("A", ElementType.LETTER);
-        child2 = new TextSymbol("B", ElementType.LETTER);
+        child1 = new TextSymbol('A', ElementType.LETTER);
+        child2 = new TextSymbol('B', ElementType.LETTER);
     }
 
     @Test

@@ -3,10 +3,10 @@ package lt.esdc.texthandler.component;
 import java.util.List;
 
 public class TextSymbol implements TextElement {
-    private final String symbol;
+    private final char symbol;
     private final ElementType elementType;
 
-    public TextSymbol(String symbol, ElementType elementType) {
+    public TextSymbol(char symbol, ElementType elementType) {
         this.symbol = symbol;
         this.elementType = elementType;
     }
@@ -33,6 +33,6 @@ public class TextSymbol implements TextElement {
 
     @Override
     public String toString() {
-        return symbol;
+        return String.valueOf(symbol);
     }
 }

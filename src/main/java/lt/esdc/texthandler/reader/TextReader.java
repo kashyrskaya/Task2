@@ -20,9 +20,7 @@ public class TextReader {
 
         try {
             String content = Files.readString(filePath);
-            content = content.replaceAll("\\r\\n", "\n");
             logger.info("Successfully read file: {}", filePath.toString());
-            logger.info("File content preview:\n" + content.replace("\n", "\\n").replace("\r", "\\r"));
             return Optional.of(content);
         } catch (IOException e) {
             logger.error("Error reading file: {} - {}", filePath.toString(), e.getMessage());

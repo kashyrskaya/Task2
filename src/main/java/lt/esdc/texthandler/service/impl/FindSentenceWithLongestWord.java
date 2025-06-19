@@ -4,9 +4,13 @@ import lt.esdc.texthandler.component.ElementType;
 import lt.esdc.texthandler.component.TextElement;
 import lt.esdc.texthandler.service.TextService;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FindSentenceWithLongestWord implements TextService<TextElement> {
+    private static final String CONTAINS_LETTER_REGEX = ".*\\p{L}+.*";
+    private static final String NON_LETTER_CHARS_REGEX = "[^\\p{L}]";
+    private static final String EMPTY_STRING = "";
 
     @Override
     public TextElement execute(TextElement textElement) {
@@ -58,11 +62,11 @@ public class FindSentenceWithLongestWord implements TextService<TextElement> {
         if (element.getElementType() != ElementType.LEXEME) {
             return false;
         }
-        return element.toString().matches(".*\\p{L}+.*"); // matches any letter (Unicode-aware)
+        return element.toString().matches(CONTAINS_LETTER_REGEX);
     }
 
     private int getWordLength(TextElement element) {
-        return element.toString().replaceAll("[^\\p{L}]", "").length();
+        return element.toString().replaceAll(NON_LETTER_CHARS_REGEX, EMPTY_STRING).length();
     }
 }
 

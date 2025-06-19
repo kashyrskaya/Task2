@@ -34,10 +34,6 @@ public class TextComposite implements TextElement {
 
     @Override
     public String toString() {
-        if (elements.isEmpty()) {
-            return "";
-        }
-
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < elements.size(); i++) {
